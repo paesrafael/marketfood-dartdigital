@@ -132,6 +132,7 @@ export default function ListingOfProduct() {
                       <CartInput
                         type="number"
                         name={`product-${cartItem.id}`}
+                        placeholder="Quantidade"
                         min="1"
                         onChange={(qty) => (handleQtyChange(`product-${cartItem.id}`, qty.target.value))}
                       />
