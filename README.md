@@ -54,9 +54,11 @@ marketfood
 │   ├── index.html
 ├── src/
 │   ├── assets/
-│   │   └── images
+│   │   └── icons/
+│   │       └── loader.svg
+│   │   └── images/
 │   │       └── woman-man-supermarket.png
-│   │   └── styles
+│   │   └── styles/
 │   │       └── GlobalStyles.js
 │   ├── components/
 │   │   └── AddProduct/
@@ -66,6 +68,9 @@ marketfood
 │   │       └── index.js
 │   │       └── styles.js
 │   │   └── ListingOfProduct/
+│   │       └── index.js
+│   │       └── styles.js
+│   │   └── Loading/
 │   │       └── index.js
 │   │       └── styles.js
 │   │   └── SearchProduct/
