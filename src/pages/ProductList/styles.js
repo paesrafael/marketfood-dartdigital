@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Container = styled.main`
   padding: 20px 0 20px 0;
-  margin: 0 auto;
+  margin: 30px auto 30px;
   width: 100%;
   max-width: 90%;
   text-align: center;
@@ -39,6 +39,15 @@ const Title = styled.h1`
   color: var(--primary);
 `
 
+const Text = styled.p`
+  color: var(--primary);
+
+  a {
+    margin-left: 5px;
+    color: var(--primary);
+  }
+`
+
 const Image = styled.img`
   width: 100%;
   max-width: 30%;
@@ -48,10 +57,17 @@ const Image = styled.img`
   }
 `
 
+const Footer = styled.footer`
+  margin: 80px 0 5px 0;
+  display: block;
+`
+
 export {
   Container,
   Wrapper,
   MarketFood,
   Title,
+  Text,
   Image,
+  Footer,
 }

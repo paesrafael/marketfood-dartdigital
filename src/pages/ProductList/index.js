@@ -13,7 +13,9 @@ import {
   Wrapper,
   MarketFood,
   Title,
+  Text,
   Image,
+  Footer,
 } from './styles'
 
 export default function ProductList() {
@@ -35,6 +37,19 @@ export default function ProductList() {
           <ListingOfProduct />
         </SearchProvider>
       </Wrapper>
+
+      <Footer>
+        <Text>
+          © Copyright 2020 -
+          <a
+            href="https://github.com/paesrafael/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rafael Paes
+          </a>
+        </Text>
+      </Footer>
     </Container>
   )
 }
