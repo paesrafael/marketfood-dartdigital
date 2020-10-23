@@ -183,7 +183,7 @@ export default function ListingOfProduct() {
                 ))}
               </CartContent>
             ) : (
-              <Text>Nenhum produto na sua lista de compras!</Text>
+              <Text>Nenhum produto na sua lista de compras.</Text>
             )}
           </CartContainer>
         </TabPanel>
@@ -216,7 +216,7 @@ export default function ListingOfProduct() {
               ))}
             </AddedCartContainer>
           ) : (
-            <Text>Você ainda não pegou nenhum produto no mercado!</Text>
+            <Text>Você ainda não pegou nenhum produto no mercado.</Text>
           )}
         </TabPanel>
       </Tabs>
