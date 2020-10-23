@@ -54,6 +54,8 @@ marketfood
 │   ├── index.html
 ├── src/
 │   ├── assets/
+│   │   └── images
+│   │       └── woman-man-supermarket.png
 │   │   └── styles
 │   │       └── GlobalStyles.js
 │   ├── components/
