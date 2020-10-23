@@ -6,11 +6,14 @@ import { SearchProvider } from '~/contexts'
 import AddProduct from '~/components/AddProduct'
 import ListingOfProduct from '~/components/ListingOfProduct'
 
+import WomanManMarket from '~/assets/images/woman-man-supermarket.png'
+
 import {
   Container,
   Wrapper,
   MarketFood,
   Title,
+  Image,
 } from './styles'
 
 export default function ProductList() {
@@ -22,7 +25,9 @@ export default function ProductList() {
           MarketFood
         </MarketFood>
 
-        <Title>Faça sua lista do mercado</Title>
+        <Title>Faça sua lista de mercado</Title>
+
+        <Image src={WomanManMarket} alt="Mulher e Homem no mercado" />
 
         <SearchProvider>
           <AddProduct />

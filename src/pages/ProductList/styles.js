@@ -35,7 +35,17 @@ const MarketFood = styled.div`
 `
 
 const Title = styled.h1`
+  margin-bottom: 10px;
   color: var(--primary);
+`
+
+const Image = styled.img`
+  width: 100%;
+  max-width: 30%;
+
+  @media (max-width: 768px) {
+    max-width: 70%;
+  }
 `
 
 export {
@@ -43,4 +53,5 @@ export {
   Wrapper,
   MarketFood,
   Title,
+  Image,
 }
