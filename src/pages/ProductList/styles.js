@@ -1,4 +1,19 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const keyframes = css`
+  @keyframes showImage {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(-150px);
+      transform: translateX(-150px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+`
 
 const Container = styled.main`
   padding: 20px 0 20px 0;
@@ -8,6 +23,7 @@ const Container = styled.main`
   text-align: center;
   border-radius: 0 0 10px 10px;
   background: var(--gray-light);
+  ${keyframes}
 `
 
 const Wrapper = styled.section`
@@ -51,6 +67,7 @@ const Text = styled.p`
 const Image = styled.img`
   width: 100%;
   max-width: 30%;
+  animation: showImage 1300ms;
 
   @media (max-width: 768px) {
     max-width: 70%;

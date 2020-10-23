@@ -1,5 +1,33 @@
 import styled, { css } from 'styled-components'
 
+const keyframes = css`
+  @keyframes showProductItem {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes showCartContent {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(-100px);
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+`
+
 const Card = css`
   padding: 10px;
   margin: 0 10px 20px 10px;
@@ -24,6 +52,7 @@ const Container = styled.section`
 
 const Content = styled.div`
   width: 100%;
+  ${keyframes};
   display: inline-block;
 
   .icon-check {
@@ -40,6 +69,7 @@ const Content = styled.div`
 
 const ProductItem = styled.button`
   ${Card}
+  animation: showProductItem 1300ms;
   cursor: pointer;
 
   &:hover {
@@ -113,7 +143,9 @@ const CartContainer = styled.div`
   display: block;
 `
 
-const CartContent = styled.div``
+const CartContent = styled.div`
+  animation: showCartContent 1300ms;
+`
 
 const CartItem = styled.div`
   ${Card}
