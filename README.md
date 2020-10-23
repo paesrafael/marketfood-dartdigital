@@ -34,6 +34,8 @@ No projeto você pode visualizar uma lista de produtos, adicionar os produtos na
 
 Inicialmente o projeto possui uma lista de produtos, adicionar produtos na lista e no carrinho.
 
+Você pode ver o projeto funcionando [aqui](https://demo.pointec.dev/dartdigital/marketfood/).
+
 <p align="center">
   <a href="#" target="_blank">
     <img src="https://assets.pointec.dev/image/marketfood-tela.png" alt="Tela do projeto" />
