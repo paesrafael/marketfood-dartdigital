@@ -12,6 +12,7 @@ import { useSearchProduct } from '~/contexts'
 
 import SearchProduct from '~/components/SearchProduct'
 import CategoryProduct from '~/components/CategoryProduct'
+import Loading from '~/components/Loading'
 
 import {
   Container,
@@ -92,7 +93,7 @@ export default function ListingOfProduct() {
               </ProductItem>
             ))
           ) : (
-            <Text>loading ...</Text>
+            <Loading width="40px" height="40px" />
           ))
         }
       </Content>
