@@ -16,7 +16,6 @@ const keyframes = css`
 `
 
 const Container = styled.div`
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +24,7 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: -35%;
+    top: 35px;
     left: 0;
     width: 100%;
     height: 100%;
