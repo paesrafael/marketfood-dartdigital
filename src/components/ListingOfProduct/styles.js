@@ -67,7 +67,7 @@ const ProductItem = styled.button`
 
 const Text = styled.p`
   margin: ${(props) => (props.margin ? props.margin : '0')};
-  color: var(--text);
+  color: ${(props) => (props.color ? props.color : `var(--text)`)};
   font-size: ${(props) => (props.size ? props.size : '16px')};
 `
 

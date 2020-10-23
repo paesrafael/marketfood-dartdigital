@@ -37,6 +37,7 @@ import {
 export default function ListingOfProduct() {
   const [addedCart, setAddedCart] = useState([])
   const [tabSelected, setTabSelected] = useState(0)
+  const [error, setError] = useState('')
   const {
     cart, setCart,
     searchProduct, searchProductName,
@@ -45,6 +46,7 @@ export default function ListingOfProduct() {
   } = useSearchProduct()
 
   function handleAddCart(addProduct) {
+    setError('')
     setCart([...cart, addProduct])
 
     if (tabSelected !== 0) {
@@ -57,8 +59,20 @@ export default function ListingOfProduct() {
   }
 
   function handleAddedToCart(addedProduct, productItemQuantities) {
+    setError('')
+
+    if (productItemQuantities.length === 0) {
+      return setError('Você precisa escolher a quantidade.')
+    }
+
     setAddedCart([...addedCart, addedProduct])
-    setAddedCartProductQuantities([...addedCartProductQuantities, { qtyID: addedProduct.id, qty: productItemQuantities[0].qty }])
+    setAddedCartProductQuantities([
+      ...addedCartProductQuantities,
+      {
+        qtyID: addedProduct.id,
+        qty: productItemQuantities[0].qty
+      }
+    ])
     setCart(cart.filter(removeCartItem => removeCartItem.id !== addedProduct.id))
   }
 
@@ -121,7 +135,10 @@ export default function ListingOfProduct() {
                       className="icon-filled"
                     />
 
-                    <Text margin="0 0 0 10px" className="text-button">Limpar lista</Text>
+                    <Text
+                      margin="0 0 0 10px"
+                      className="text-button"
+                    >Limpar lista</Text>
                   </Button>
                 </ButtonWrapper>
 
@@ -137,6 +154,14 @@ export default function ListingOfProduct() {
                         min="1"
                         onChange={(qty) => (handleQtyChange(`product-${cartItem.id}`, qty.target.value))}
                       />
+
+                      {!!error && (
+                        <Text
+                          margin="5px 0"
+                          size="13px"
+                          color={`var(--red)`}
+                        >{error}</Text>
+                      )}
                     </CartHeader>
 
                     <CartFooter>
