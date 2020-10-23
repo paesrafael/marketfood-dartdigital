@@ -39,6 +39,7 @@ export default function ListingOfProduct() {
   const [tabSelected, setTabSelected] = useState(0)
   const [error, setError] = useState('')
   const {
+    loading,
     cart, setCart,
     searchProduct, searchProductName,
     productQuantities, setProductQuantities,
@@ -73,7 +74,9 @@ export default function ListingOfProduct() {
         qty: productItemQuantities[0].qty
       }
     ])
-    setCart(cart.filter(removeCartItem => removeCartItem.id !== addedProduct.id))
+    setCart(cart.filter(removeCartItem =>
+      removeCartItem.id !== addedProduct.id)
+    )
   }
 
   const handleQtyChange = (cartProduct, productItemQuantity) => {
@@ -87,8 +90,10 @@ export default function ListingOfProduct() {
       <SearchProduct />
 
       <Content>
-        {searchProduct(searchProductName) &&
-          (searchProduct(searchProductName).length > 0 ? (
+        {!!loading ? (
+          <Loading width="40px" height="40px" />
+        ) : (
+          searchProduct(searchProductName).length > 0 ? (
             searchProduct(searchProductName).slice(0, 20).map(product => (
               <ProductItem
                 key={product.id}
@@ -107,9 +112,14 @@ export default function ListingOfProduct() {
               </ProductItem>
             ))
           ) : (
-            <Loading width="40px" height="40px" />
-          ))
-        }
+            <Text
+              margin="0 0 30px 0"
+              color={`var(--red)`}
+            >
+              Nenhum produto encontrado para sua busca.
+            </Text>
+          )
+        )}
       </Content>
 
       <Tabs

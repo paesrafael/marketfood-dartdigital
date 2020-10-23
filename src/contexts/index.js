@@ -1,10 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, {
+  createContext, useContext,
+  useState, useEffect
+} from 'react'
 
 import api from '~/services/api'
 
 const SearchContext = createContext()
 
 const SearchProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false)
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
   const [searchProductName, setSearchProductName] = useState('')
@@ -12,16 +16,25 @@ const SearchProvider = ({ children }) => {
   const [addedCartProductQuantities, setAddedCartProductQuantities] = useState([])
 
   useEffect(() => {
-    api.get('food').then(response => {
-      setProducts(response.data)
-    })
+    setLoading(true)
+
+    async function getSupermarket() {
+      await api.get('food').then(response => {
+        setProducts(response.data)
+      })
+
+      setLoading(false)
+    }
+
+    getSupermarket()
   }, [])
 
   const searchProduct = (description) => {
     return (
-      products &&
-      products.filter((item) =>
-        item.description.toLowerCase().includes(description.toLowerCase())
+      products && (
+        products.filter((item) =>
+          item.description.toLowerCase().includes(description.toLowerCase())
+        )
       )
     )
   }
@@ -29,6 +42,7 @@ const SearchProvider = ({ children }) => {
   return (
     <SearchContext.Provider
       value={{
+        loading,
         cart,
         setCart,
         products,
